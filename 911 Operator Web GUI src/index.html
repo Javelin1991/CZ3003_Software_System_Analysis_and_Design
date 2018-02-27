@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
+        <link rel="stylesheet" type="text/css" href="vendors/css/animate.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+        <link rel="stylesheet" type="text/css" href="resources/css/queries.css">
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+        <title>911</title>
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="row">
+                    <ul class="main-nav js--main-nav">
+                        <li><a href="#features"></a></li>
+                        <li><a href="#works"></a></li>
+                        <li><a href="#newIncident">New Incident</a></li>
+                        <li><a href="#updateIncident">Update Incident</a></li>
+                    </ul>
+                    <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+                </div>
+            </nav>
+            <div class="hero-text-box"> 
+                <h1>NATIONAL CALL CENTRE — 911 </h1>
+                <br>
+                <br>
+                <h2>You're now logged in as 911 Operator</h2>
+            </div>
+            
+        </header>
+        
+        <section class="section-features js--section-features" id="features">
+            <div class="row">
+                <h2>911 Mission Statement</h2>
+                <p class="long-copy">
+                    We have been given a sacred trust to provide the excellent level of service to the citizens of Singapore by answering 9-1-1 and non-emergency calls in a prompt, efficient, and professional manner and dispatching the appropriate response, we help save lives, protect property, and assist citizens in their time of need.
+                </p>
+            </div>
+         
+        </section>
+        
+        <section class="section-newIncident" id="newIncident">
+                <div class="row">
+                    <h2>New Incident Report Form</h2>
+                </div>
+                
+                <div class="row">
+                    <form method="post" action="http://220.255.94.107:628/cmowebservice/reportincident.aspx" class="incident-form">
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Operator</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Operator" id="name" placeholder="Operator name/Operator ID" required>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="date">Date</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Date" id="date" placeholder="YYYY-MM-DD HH:MM:SS" required>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Description</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="Description" id="incidentInfo" placeholder="Information of the incident"></textarea>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Location Address</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="Loc_Address" id="locationAddress" placeholder="Location of the incident"></textarea>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Location Latitude</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Loc_lat" id="latitude" placeholder="Latitude" required>
+                        </div>
+                    </div>
+                        
+                      <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Location Longitude</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Loc_long" id="longitude" placeholder="Longitude" required>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="severity">Severity</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <select name="Severity" id="severity">
+                                <option value="0" selected>Minor</option>
+                                <option value="1">Major</option>
+                                <option value="2">Catastrophic</option>
+                            </select>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="incidentID">Incident ID</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="number" step="1" pattern="\d+" name="IncidentID" id="incidentID" placeholder="Incident ID">
+                        </div>
+                    </div>
+                        
+                        
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Submit" onclick="store()">
+
+                            <script  type="text/javascript">
+                                    function store(){
+                                    var operatorName = document.getElementById("name");
+                                    var incidentInfo =document.getElementById("incidentInfo")
+                                    localStorage.setItem("name", operatorName.value);
+                            } 
+                            </script>
+                        </div>
+                    </div>               
+                    </form>                 
+                </div>            
+            </section> 
+        
+            
+
+
+             <section class="section-updateIncident js--section-updateIncident" id="updateIncident">
+        
+                <div class="row">
+                    <h2>Update Incident Report Form</h2>
+                </div>
+                 
+                <div id="fetch">        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Enter incident ID</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Operator" id="name" placeholder="Incident ID" required>
+                        </div>
+                    </div>
+                 
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Fetch" onclick="fetchIncident()">
+                    
+                    <script> function fetchIncident() {
+                        var x = document.getElementById("updateIncidentForm");
+                        var y = document.getElementById("fetch");
+                                if (x.style.display === "block") {
+                                        x.style.display = "none";
+                                        y.style.display = "block";
+                                    }else{
+                                        x.style.display = "block";
+                                        y.style.display = "none";
+                                  }
+                          } 
+                        </script>              
+                        </div>
+                    </div> 
+                 </div>  
+    
+                <div class="row">
+                    <form method="post" action="http://220.255.94.107:628/cmowebservice/reportincident.aspx" class="update-incident-form" id="updateIncidentForm">
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Operator</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Operator" id="name" placeholder="Operator name/Operator ID" required>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="date">Date</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Date" id="date" placeholder="YYYY-MM-DD HH:MM:SS" required>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Description</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="Description" id="incidentInfo" placeholder="Information of the incident"></textarea>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Location Address</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <textarea name="Loc_Address" id="locationAddress" placeholder="Location of the incident"></textarea>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Location Latitude</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Loc_lat" id="latitude" placeholder="Latitude" required>
+                        </div>
+                    </div>
+                        
+                      <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>Location Longitude</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="text" name="Loc_long" id="longitude" placeholder="Longitude" required>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="severity">Severity</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <select name="Severity" id="severity">
+                                <option value="0" selected>Minor</option>
+                                <option value="1">Major</option>
+                                <option value="2">Catastrophic</option>
+                            </select>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="incidentID">Incident ID</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="number" step="1" pattern="\d+" name="IncidentID" id="incidentID" placeholder="Incident ID">
+                        </div>
+                    </div>
+                        
+                    
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <input type="submit" value="Fetch Others" onclick="fetchIncident()">
+                        </div>
+                      
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Update" onclick="store()">
+                           
+                            <script  type="text/javascript">
+                                    function store(){
+                                    var operatorName = document.getElementById("name");
+                                    var incidentInfo =document.getElementById("incidentInfo")
+                                    localStorage.setItem("name", operatorName.value);
+                                } 
+                            </script>
+                        </div>
+                    </div>               
+                    </form>                 
+                </div>            
+            </section> 
+        
+        <section class="section-chatIncident js--section-chatIncident" id="chatIncident">
+            
+            
+            <div class="row">
+                    <h2>Crisis Chat </h2>
+            </div>
+            
+             <div id="goToChat">     
+                 
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label for="name">Enter crisis ID</label>
+                        </div>
+                        <div class="col span-1-of-3">
+                            <input type="text" placeholder="Crisis ID" required>
+                        </div>
+                    </div>
+                 
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label>&nbsp;</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <input type="submit" value="Go to Chat" onclick="goToChat()">
+                    
+                    <script> function goToChat() {
+                        var x = document.getElementById("chatContainer");
+                        var y = document.getElementById("goToChat");
+                                if (x.style.display === "block") {
+                                        x.style.display = "none";
+                                        y.style.display = "block";
+                                    }else{
+                                        x.style.display = "block";
+                                        y.style.display = "none";
+                                }
+                          } 
+                        </script>              
+                        </div>
+                    </div> 
+            </div>
+            
+            <div class="chatContainer" id ="chatContainer">
+                
+            <div class="row">       
+            <div class="col span-1-of-2">
+                
+            <div class="row" id="chat">
+                
+            <div class="row">
+                
+                 <div class="row" id = "lstIncidentChat">
+            </div>
+            
+            
+             <div class="row">
+                     
+                 <div class>
+                    <br>
+                    <input type="text" name="txtChatIn" id="txtChatIn" placeholder="Enter message here"/>
+                 </div>
+                 <div class>
+                     
+                <div class="col span-1-of-3">
+                    <input type="submit" name="btnChatSend" id="btnChatSend" value="Send" onclick="sendChatText();" />
+                 </div>
+                     
+                  <div class="col span-2-of-3">
+                     <input type="submit" value="Update Others" onclick="goToChat()">
+                 </div>
+               </div>
+            </div>
+         </div> 
+         </div>
+         </div>
+        
+        <div class="col span-1-of-2">
+              <div class="row">
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label class="subText" for="name">Crisis ID</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <label id="lblincidentID">&nbsp;</label>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label class="subText" for="date">Address</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <label id="lblAddress">&nbsp;</label>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label class="subText">Description</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <label id="lblDescription">&nbsp;</label>
+                        </div>
+                    </div>
+                        
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label class="subText">Date &amp; Time</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <label id="lblDate">&nbsp;</label>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col span-1-of-3">
+                            <label class="subText" >Severity</label>
+                        </div>
+                        <div class="col span-2-of-3">
+                            <label id="lblSeverity">&nbsp;</label>
+                        </div>
+                    </div>              
+                </div>
+            </div>
+                
+        </div>
+        </div>
+        </section> 
+        
+        <footer>
+            <div class="row">
+                <p>
+                    Copyright &copy; 2017 by SSP1_911 Team. &nbsp; All rights reserved.
+                </p>
+            </div>
+        </footer>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
+    <script src="vendors/js/jquery.waypoints.min.js"></script>
+    <script src="resources/js/script.js"></script>
+        
+
+    <script>
+    //start of js necessary for chat 
+    $("document").ready(function () {
+        tmrMain();
+        setInterval(tmrMain, 8000);
+	   $("#txtChatIn").on('keyup', function (e) {
+            if (e.keyCode == 13) {
+			 sendChatText();
+		  }
+	   });
+        
+	   $("#ddlAlertLevel").change(function () {
+            updateCrisisAlertLevel();
+        });
+    });
+
+
+
+    function tmrMain(){
+        reloadChat();
+        //hardcoded crisis id 
+        incidentDetail(215);
+    }
+
+
+    
+    function reloadChat(){
+	   
+        //important to append the hardcoded id at the end
+        
+		var url = "http://220.255.94.107:628/cmowebservice/viewincidentchat.aspx?ID=215";
+		$.getJSON( url, {
+			format: "json"
+			})
+			.done(function( data ) {
+				$('#lstIncidentChat').html("&nbsp;");
+				for (var i = 0, len = data.length; i < len; i++) {
+					incCEntry = "<div class='msgln'>("+data[i].Date+")<b>"+data[i].Sender+"</b>: "+data[i].Description+"<br></div>";
+					$("#lstIncidentChat").append(incCEntry);
+				}
+				if($('#lstIncidentChat').html().length > 10){
+					$('#lstIncidentChat').scrollTop($('#lstIncidentChat')[0].scrollHeight);
+				}
+		});
+	
+    }
+
+
+    function sendChatText(){
+       $.post("http://220.255.94.107:628/cmowebservice/responseincidentchat.aspx",
+		{
+           
+        //hardcoded crisis ID
+            Incident_ID: 215,
+            Sender: "911 Supervisor",
+    	   Description: $("#txtChatIn").val()
+       },
+       function(data,status){
+			$("#txtChatIn").val("");
+			reloadChat();
+       });
+    }
+            
+    function incidentDetail(id){
+        
+        //Need to get the required crisis report from 911 database
+        
+        //CMO side getting the required info from the html ui
+        /*
+        $("#lblincidentID").html("" + id);
+        $("#lblAddress").html("" + $("#incLoc_Address-" + id).html());
+        $("#lblDescription").html("" + $("#incDescription-" + id).html());
+        $("#lblDate").html("" + $("#incDate-" + id).html());
+        $("#lblSeverity").html("" + $("#incSeverity-" + id).html());
+        selIncID = id;
+        $("#pChat").show();
+        $("#pIncidentDetailPanel").show();
+        $("#pOperationCol").show();
+        updateOpPlan();
+        $('#lstIncidentChat').html("&nbsp;");
+        $("#pEFCol").show();
+        */
+    }
+//end of js necessary for chat 
+        
+</script> 
+          
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61026110-2', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+    </body>  
+    
+</html>
