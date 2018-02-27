@@ -1,7 +1,7 @@
 # CZ3003 : Software System Analysis and Design
 
 ## Learning Outcome
-I have learnt **software system integration**. The coursework includes a group project where our group represents 911 Team as part of the National Emergency Crisis Management System. I have contributed my work to the 911 Team by building a web GUI for 911 operator. The project has enabled me to understand how to design and implement farily decent websites using ``HTML``, ``CSS`` and ``Javascript``. 
+I have learnt **software system integration**. The coursework includes a group project where our group represents 911 Team as part of the National Emergency Crisis Management System. I have contributed my work to the 911 Team by building a web GUI for 911 operator. The project has enabled me to understand how to design and implement decent websites using ``HTML``, ``CSS`` and ``Javascript``. 
 
 ## Coursework Group Project
 
